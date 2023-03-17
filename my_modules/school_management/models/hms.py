@@ -14,3 +14,13 @@ class Patient(models.Model):
     images=fields.Image()
     adress=fields.Text()
     age=fields.Integer()
+    
+    
+    
+    state = fields.Selection([ ('undetermined', 'Undetermined'),
+        ('good', 'Good'),
+        ('fair', 'Fair'),
+        ('serious', 'Serious')],string='State', default='undetermined')
+    departemnt_id=fields.Many2one('hms.department', string='Department')
+    doctors_id=fields.Many2many('hms.doctors', string='Doctors')
+    History=fields.Char(string='History')
