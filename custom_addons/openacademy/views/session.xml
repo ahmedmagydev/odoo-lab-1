@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+
+        
+    
+       
+        <record model="ir.ui.view" id="openacademy_session_form_view">
+            <field name="name">session.form</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="instructor_id" />
+                            
+                        </group>
+                        <group>
+                         <field name="duration"/>
+                         <field name="seats"/>
+                         <field name="course_id" />
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="openacademy.session_view_tree" model="ir.ui.view">
+            <field name="name">openacademy.session.view.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="session list">
+                  <field name="name"/>
+                  <field name="seats"/>
+                  <field name="start_date"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="openacademy_session_action" model="ir.actions.act_window">
+            <field name="name">Action Name</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">tree,form</field>
+            
+            <field name="help" type="html">
+            <b>this session</b>
+                
+            </field>
+        </record>
+        <menuitem
+            id="openacademy.session_menu"
+            name="sessions"
+            parent="openacademy_menu"
+            action="openacademy_session_action"
+            />
+    
+        
+    
+    </data>
+    
+
+</odoo>
